@@ -1,0 +1,42 @@
+.pseudo::first-letter {
+    color: red;
+    font-size: 30px;
+}
+/* :pseudo-class( 다른상태일 때 ) 스타일링 도움
+:pseudo-element (내부의 일부분만 스타일줄 때) 
+일부 요소 스타일링시 pseudo-element 사용가능 ex)button type="file"*/
+
+/* -webkit- 크롬, 사파리, Edge에서만 적용되는 스타일 */
+/* -moz- FirFox에서만 적용 */
+/* -ms- explorer에서만 적용 */
+
+
+
+ /* appearance: none (브라우저 기본 CSS <User Agent Sheet>안보이게)*/
+progress {
+  /*기본 배경은 없애주는게 좋습니다*/
+  -webkit-appearance: none;
+  -moz-appearance : none;
+  appearance: none;
+  background: white;
+/* IE10 호환성용 */
+  color: red;
+}
+progress::-webkit-progress-inner-element{
+  appearance: none;
+  background-color: blue;
+}
+progress::-webkit-progress-bar {
+  background-color: #eee;
+  border-radius: 2px;
+}
+progress::-webkit-progress-value {
+  background-color: red;
+  border-radius: 2px;
+}
+
+/*파이어폭스 호환성을 위해*/
+progress::-moz-progress-bar {
+  background-color: red;
+  border-radius: 2px;
+}
