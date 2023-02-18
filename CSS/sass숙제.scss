@@ -1,0 +1,69 @@
+@use '_reset';
+
+.active {
+    background-color: rgb(42, 42, 242);
+    color: white;
+}
+ul {
+    list-style: none;
+    width: 30%;
+    li{
+        border : 1px solid rgb(95, 94, 94);
+        padding: 10px;
+        
+    }
+    li:nth-child(-n+2){
+        border-bottom: none;
+    }
+    
+}
+
+%div-main {
+    width: 100%;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+}
+
+.div-1 {
+    @extend %div-main;
+    background-color :rgba(191, 225, 192, 0.5);
+    color: rgb(115, 157, 111);
+}
+
+.div-2 {
+    @extend %div-main;
+    background-color: rgba(119, 174, 246, 0.5);
+    color: rgb(71, 100, 138);
+}
+
+.div-3 {
+    @extend %div-main;
+    background-color: rgba(240, 224, 131, 0.5);
+    color: rgb(140, 131, 78);
+}
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10px;
+}
+
+@mixin 가로폭($가로폭) {
+    width: $가로폭;
+    height: 50px;
+    border-radius: 1px;
+    border: 0.5px solid rgba(116, 55, 116, 0.5);
+    background-color: rgba(118, 56, 118, 0.5);
+}
+.col-6 {
+    @include 가로폭(50%);
+}
+.col-4 {
+    @include 가로폭(33.33%);
+}
+.col-3 {
+    @include 가로폭(25%);
+}
+.col-2 {
+    @include 가로폭(16.66%)
+}

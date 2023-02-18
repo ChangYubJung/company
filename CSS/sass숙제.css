@@ -1,0 +1,84 @@
+body {
+  margin: 0;
+}
+
+div {
+  box-sizing: border-box;
+}
+
+.active {
+  background-color: rgb(42, 42, 242);
+  color: white;
+}
+
+ul {
+  list-style: none;
+  width: 30%;
+}
+ul li {
+  border: 1px solid rgb(95, 94, 94);
+  padding: 10px;
+}
+ul li:nth-child(-n+2) {
+  border-bottom: none;
+}
+
+.div-3, .div-2, .div-1 {
+  width: 100%;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px;
+}
+
+.div-1 {
+  background-color: rgba(191, 225, 192, 0.5);
+  color: rgb(115, 157, 111);
+}
+
+.div-2 {
+  background-color: rgba(119, 174, 246, 0.5);
+  color: rgb(71, 100, 138);
+}
+
+.div-3 {
+  background-color: rgba(240, 224, 131, 0.5);
+  color: rgb(140, 131, 78);
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 10px;
+}
+
+.col-6 {
+  width: 50%;
+  height: 50px;
+  border-radius: 1px;
+  border: 0.5px solid rgba(116, 55, 116, 0.5);
+  background-color: rgba(118, 56, 118, 0.5);
+}
+
+.col-4 {
+  width: 33.33%;
+  height: 50px;
+  border-radius: 1px;
+  border: 0.5px solid rgba(116, 55, 116, 0.5);
+  background-color: rgba(118, 56, 118, 0.5);
+}
+
+.col-3 {
+  width: 25%;
+  height: 50px;
+  border-radius: 1px;
+  border: 0.5px solid rgba(116, 55, 116, 0.5);
+  background-color: rgba(118, 56, 118, 0.5);
+}
+
+.col-2 {
+  width: 16.66%;
+  height: 50px;
+  border-radius: 1px;
+  border: 0.5px solid rgba(116, 55, 116, 0.5);
+  background-color: rgba(118, 56, 118, 0.5);
+}/*# sourceMappingURL=sass숙제.css.map */

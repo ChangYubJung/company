@@ -1,0 +1,53 @@
+@charset "UTF-8";
+/* nesting 문법 - 관련있는 class들 묶을 때 좋음. (두개 이상 중첩 하지말자.)
+.main-bg h4 {} 을 밑에 형식으로 사용.*/
+/* @extend 문법(class 전체를 복사해주는 문법)*/
+.btn-green {
+  width: 100px;
+  height: 100px;
+  padding: 20px;
+}
+
+.div-green, .div-blue, .div-red {
+  width: 200px;
+  height: 200px;
+  padding: 20px;
+}
+
+.div-red {
+  background-color: red;
+}
+
+.div-blue {
+  background-color: blue;
+}
+
+.div-green {
+  background-color: green;
+}
+
+.btn-green {
+  color: green;
+}
+
+.box {
+  width: 100%;
+  background-color: #2a4cb2;
+}
+
+/*@mixin 문법(긴 코드를 짧은 단어로 축약할 때 씀)
+$파라미터는 긴 코드를 가변적으로 만들 때 씀.*/
+h2 {
+  font-size: 30px;
+  letter-spacing: -1px;
+}
+
+h3 {
+  font-size: 20px;
+  letter-spacing: -1px;
+}
+
+h4 {
+  font-size: 10px;
+  letter-spacing: -1px;
+}/*# sourceMappingURL=sass.css.map */
