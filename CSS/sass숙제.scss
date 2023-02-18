@@ -1,25 +1,28 @@
 @use '_reset';
 
-.active {
-    background-color: rgb(42, 42, 242);
-    color: white;
-}
 ul {
     list-style: none;
     width: 30%;
     li{
         border : 1px solid rgb(95, 94, 94);
         padding: 10px;
+        &:hover {
+            background-color: red;
+        }
         
     }
     li:nth-child(-n+2){
         border-bottom: none;
     }
+    .active {
+        background-color: rgb(42, 42, 242);
+        color: white;
+    }
     
 }
 
 %div-main {
-    width: 100%;
+    width: 80%;
     border-radius: 5px;
     padding: 10px;
     margin: 10px;
@@ -54,6 +57,7 @@ ul {
     border-radius: 1px;
     border: 0.5px solid rgba(116, 55, 116, 0.5);
     background-color: rgba(118, 56, 118, 0.5);
+    border-collapse: collapse;
 }
 .col-6 {
     @include 가로폭(50%);
@@ -65,5 +69,5 @@ ul {
     @include 가로폭(25%);
 }
 .col-2 {
-    @include 가로폭(16.66%)
+    @include 가로폭(16.66%);
 }
