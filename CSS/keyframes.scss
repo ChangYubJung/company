@@ -1,0 +1,102 @@
+@use '_reset';
+
+.ani-btn {
+    color: white;
+    background-color: rgba(38, 53, 221, 0.5);
+    border-style: none;
+    margin-left: 50%;
+    padding: 20px;
+    margin-top: 10px;
+    border-radius: 5px;
+
+    &:hover{
+        animation-name: 흔들흔들;
+        animation-duration: 0.5s;
+    }
+    
+    @keyframes 흔들흔들 {
+        0%{
+            transform: rotate(0deg);
+        }
+        20%{
+            transform: rotate(-10deg);
+        }
+        40%{
+            transform: rotate(10deg);
+        }
+        60%{
+            transform: rotate(-10deg);
+        }
+        80%{
+            transform: rotate(10deg);
+        }  
+        100%{
+            transform: rotate(0deg);
+        }    
+    }
+}
+
+.ani-p{
+    text-align: center;
+    margin-top:5%;
+    font-size: 70px;
+
+    &:hover{
+        animation-name: 와리가리후커짐;
+        animation-duration: 1s;
+        animation-fill-mode: forwards;
+    }
+
+    @keyframes 와리가리후커짐 {
+        0%{
+            transform: rotate(0deg);
+        }
+        50%{
+            transform: rotate(-15deg);
+        }
+        100%{
+            transform: rotate(45deg) scale(1.5);
+        }
+
+    }
+}
+
+.ani-nav{  
+    color: white;
+    background-color: black;
+    width: 200px;
+    height: 100%;
+    padding: 25px;
+    position:fixed;
+    text-align: right;
+    transform: translateX(-150px);
+    transition: all 1s;
+    p{
+        text-align: left;
+    }
+
+    &:hover{
+        transform: translateX(0px);
+        transition: 1s;
+        text-align: center;
+    }
+
+    @keyframes p { 
+        0%{
+            transform: translateX(-100px);
+        }
+        50%{
+            transform: translateX(50px) skewX(-20deg);
+        }
+        100%{
+            transform: translateX(0px);
+        }
+        
+    }
+    &:hover p {
+        animation-name: p;
+        animation-duration: 1s;
+        text-align: center;
+    }
+
+}

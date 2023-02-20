@@ -1,9 +1,46 @@
-body {
+@charset "UTF-8";
+body, p, h4 {
   margin: 0;
 }
 
 div {
   box-sizing: border-box;
+}
+
+/*브라우저가 그림그리는 순서\
+1. Render Tree 만들기
+2. Layout 잡기 - 가상의 네모 박스 그리기(위치잡기) width, margin, padding 등 처리
+3. Paint 하기 - 픽셀에 색칠 color 처리 
+4. Composite 처리 - transform 등 opacity 처리
+
+갑자기 width(margin, padding 등등) 변경하면 2 -> 3 -> 4 전부 다시 처리
+color 바꾸면 3 -> 4
+4번 내용을 수정하면 4만 다시!(다른 쓰레드에서 처리해줌. 속도  up)
+
+반응속도에 차이가 크다.*/
+.ani-text {
+  text-align: center;
+  /*복잡한 애니메이션 정의는 @keyframes*/
+}
+.ani-text:hover {
+  /*@keyframes 넣고싶으면 - animation-name & animation-duration 사용*/
+  animation-name: 와리가리;
+  animation-duration: 1s;
+  animation-iteration-count: 5;
+}
+@keyframes 와리가리 {
+  0% {
+    transform: translateX(0px);
+  }
+  50% {
+    transform: translateX(-100px);
+  }
+  75% {
+    transform: translateX(100px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
 }
 
 ul {
