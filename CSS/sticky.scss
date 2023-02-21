@@ -1,0 +1,18 @@
+@use '_reset';
+
+.gray{
+    background-color: lightgray;
+    height: 2000px;
+    margin-top: 500px;
+}
+.image{
+    float: right;
+    width: 400px;
+    // fixed와 유사하다. sticky는 조건부 fixed. 부모박스 넘어가면 sticky 해제됨.
+    position: sticky;
+    top:100px;
+}
+.test{
+    float: left;
+    width: 300px;
+}

@@ -1,0 +1,61 @@
+body, p, h4 {
+  margin: 0;
+}
+
+div {
+  box-sizing: border-box;
+}
+
+img {
+  display: block;
+}
+
+.admin-container {
+  display: flex;
+  width: 100%;
+  height: 1000px;
+  background-color: rgba(163, 161, 161, 0.5);
+}
+.admin-container .side-menu {
+  width: 40px;
+  height: 100%;
+  background-color: rgba(46, 46, 250, 0.7);
+}
+.admin-container .content-container {
+  width: 100%;
+  height: 100%;
+  background-color: rgb(255, 255, 255);
+}
+.admin-container .content-container .main-content {
+  width: 99%;
+  height: 100%;
+  box-shadow: 0px 3px 6px rgba(163, 163, 163, 0.5) inset;
+  background-color: rgba(235, 232, 232, 0.35);
+}
+.admin-container .content-container .top-container {
+  width: 99%;
+  height: 80px;
+}
+.admin-container .content-container .top-container .top-search {
+  padding: 20px;
+  display: flex;
+  float: left;
+}
+.admin-container .content-container .top-container .top-search input {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+.admin-container .content-container .top-container .top-search .icon-button {
+  color: white;
+  padding: 10px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  background-color: rgba(35, 35, 35, 0.8);
+  cursor: pointer;
+}
+.admin-container .content-container .top-container .right-icon {
+  padding: 30px;
+  display: flex;
+  align-items: center;
+  float: right;
+}/*# sourceMappingURL=adminpage.css.map */

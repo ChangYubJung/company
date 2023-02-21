@@ -7,6 +7,10 @@ div {
   box-sizing: border-box;
 }
 
+img {
+  display: block;
+}
+
 .ani-btn {
   color: white;
   background-color: rgba(38, 53, 221, 0.5);

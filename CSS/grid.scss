@@ -1,6 +1,32 @@
-.grid-container {
+.grid-container{
+  // 부모  div에 display: gird주면 자식들은 모눈종이가 된다.
+  // grid-template-columns, gird-template-row 주면 모눈종이 완성
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  // fr단위로 폭지정 가능 (균등하게 나눌수 있음)
+  grid-template-columns: 100px 100px 100px 100px;
+  // rows 는 fr 쓰려면 height 속성 있어야한다.
   grid-template-rows: 100px 100px 100px;
-  grid-gap: 10px;
+  grid-template-areas:
+    "헤더 헤더 헤더 헤더"
+    "사이드 . . . "
+    "사이드 . . . "
+}
+
+.grid-container div{
+  border: 1px solid black
+}
+
+.grid-nav {
+  // 자식에 이름쓰려먼 grid-area: 이름
+  grid-area: 헤더;
+  // 세로선 1~4만큼 차지해주세요
+  // grid-column: 1/5; 
+}
+.grid-sidebar{
+  grid-area: 사이드;
+  // grid-row: 2/4;
+}
+.grid-main{
+  // grid-column: 2/5;
+  // grid-row: 2/4;
 }

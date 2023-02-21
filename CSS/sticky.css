@@ -1,0 +1,29 @@
+body, p, h4 {
+  margin: 0;
+}
+
+div {
+  box-sizing: border-box;
+}
+
+img {
+  display: block;
+}
+
+.gray {
+  background-color: lightgray;
+  height: 2000px;
+  margin-top: 500px;
+}
+
+.image {
+  float: right;
+  width: 400px;
+  position: sticky;
+  top: 100px;
+}
+
+.test {
+  float: left;
+  width: 300px;
+}/*# sourceMappingURL=sticky.css.map */

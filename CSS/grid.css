@@ -1,6 +1,19 @@
+@charset "UTF-8";
 .grid-container {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 100px 100px 100px 100px;
   grid-template-rows: 100px 100px 100px;
-  grid-gap: 10px;
+  grid-template-areas: "헤더 헤더 헤더 헤더" "사이드 . . . " "사이드 . . . ";
+}
+
+.grid-container div {
+  border: 1px solid black;
+}
+
+.grid-nav {
+  grid-area: 헤더;
+}
+
+.grid-sidebar {
+  grid-area: 사이드;
 }/*# sourceMappingURL=grid.css.map */
