@@ -8,9 +8,14 @@
     <title>Document</title>
 </head>
 <body>
+
     <div class="admin-container">
         <div class="side-menu">
-
+          <i class="fas fa-home"></i>
+          <span>Home</span>
+          <div style="clear:both"></div>
+          <i class="fas fa-car"></i>
+          <span>History</span>
         </div>
         <div class="content-container">
             <div class="top-container">
@@ -28,12 +33,12 @@
                 <h4 style="font-size:20px">Dashboard</h4>
                 <nav class="nav-bar">
                     <div class="nav-item1">
-                        <h6>Earings (Monthly)</h6>
+                        <h6>Earnings (Monthly)</h6>
                         <p><strong>$400.000</strong></p>
                         <i class="fas fa-calendar fa-2x"></i>
                     </div>
                     <div class="nav-item2">
-                        <h6>Earings (Annual)</h6>
+                        <h6>Earnings (Annual)</h6>
                         <p><strong>$800.000</strong></p>
                         <i class="fas fa-dollar-sign fa-2x"></i>
                     </div>
@@ -49,9 +54,55 @@
                         <i class="fas fa-comments fa-2x"></i>
                     </div>
                 </nav>
+                <div class="chart-container">                 
+                    <div class="chart-box">
+                      <div class="chart-title">
+                        <h4>Earnings Overview</h4>
+                      </div>
+                      <canvas id="myChart"></canvas>
+                    </div>
+                    <div class="tasks-box">
+                      <div class="tasks-title">
+                        <h4>Tasks</h4>
+                      </div>
+                      <list>
+                        <li>Borrowed Items</li>
+                        <li>Trello requests</li>
+                        <li>Marked Comments</li>
+                      </list>
+                    </div>
+                </div>
             </div>
-
         </div>
     </div>
+    
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  
+  <script>
+    const ctx = document.getElementById('myChart');
+
+    new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+        datasets: [{
+          label: 'Monthly',
+          backgroundColor: 'rgba(30,144,255,0.5)',
+          lineTension: .4,
+          pointBackgroundColor: 'red',
+          fill: "start",
+          data: [12, 19, 3, 5, 2, 3, 45],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+  </script>
 </body>
 </html>
