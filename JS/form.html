@@ -49,6 +49,23 @@
     <button class="slide-3">3</button>
     <button class="slide-next">next</button>
     <script>
+        function 함수(m, s){
+            return ((m*60) + s)*1000
+        }
+        console.log(함수(1,30));
+        console.log(함수(2,10));
+
+        function 함수2(cost, bool){
+            if(bool == true){
+                return parseFloat((cost - (cost * 0.1) - 1.5).toFixed(2));
+            } else{
+                return parseFloat((cost - (cost * 0.1).toFixed(2)));
+            }
+        }
+        console.log(함수2(70, false));
+        console.log(함수2(10, true))
+
+
         var mainImg = 0;
         var totalImg = 3;
         $('.slide-previous').on('click', function(){
