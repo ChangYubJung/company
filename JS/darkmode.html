@@ -14,7 +14,29 @@
     <span class="badge bg-dark" id="dark-mode">Dark 🔄</span>
     <h4>냐하하하하하하하하하</h4>
 
+    <div class="alert alert-danger">
+        5초 이내 구매시 사은품 증정!
+    </div>
     <script>
+        /* setTimeout(function() {실행할코드}, ms) ->  x초에 코드를 실행해주세요.
+                                    콜백함수자리엔 만들어둔 함수 넣을 수 있음. (함수 이름만!)*/
+        // setTimeout(function(){
+        //     console.log("안녕");
+        //     $('.alert').hide();
+        // }, 5000)
+
+        // setInterval(function() {}, ms) -> x초 마다 코드를 실행해주세요.
+
+        var count = 5;
+        setInterval(function(){
+            count--;
+            if(count > 0){
+                $('.alert').html(count + "초 이내 구매시 사은품 증정");
+            }else{
+                $('.alert').hide();
+            }
+        }, 1000)
+
         var click = 0;
         $('#dark-mode').on('click', function(){
             if(click % 2 == 0){
@@ -30,7 +52,6 @@
                 $('#dark-mode').html('Dark 🔄');
             }
         });
-
         // var -> 재선언 가능, 재할당 가능 / 범위 function
         //  let -> 재선언 불가능, 재할당 가능 / 범위 {}
         //  const -> 재선언 가능, 재할당 불가능 / 범위 {}

@@ -26,12 +26,74 @@
         </div>
     </div>
     <button id="login">로그인</button>
-    <div class="main-bg">
+    <!-- <div class="main-bg">
         <h4>Shirts on Sale</h4>
         <button id="login" class="btn btn-danger">로그인</button>
+    </div> -->
+    <div style="overflow: hidden">
+        <div class="slide-container">
+            <div class="slide-box">
+                <img src="../img/car1.png">
+            </div>
+            <div class="slide-box">
+                <img src="../img/car2.png">
+            </div>
+            <div class="slide-box">
+                <img src="../img/car3.png">
+            </div>
+        </div>
     </div>
-
+    <button class="slide-previous">pre</button>
+    <button class="slide-1">1</button>
+    <button class="slide-2">2</button>
+    <button class="slide-3">3</button>
+    <button class="slide-next">next</button>
     <script>
+        var mainImg = 0;
+        var totalImg = 3;
+        $('.slide-previous').on('click', function(){
+            if(mainImg > 0){
+                mainImg--;
+                $('.slide-container').css('transform', 'translateX(-' + mainImg + '00vw)');
+            }
+            else {
+                $('.slide-container').css('transform', 'translateX(-200vw)');
+                mainImg = totalImg - 1;
+                console.log(mainImg)
+            }
+        });
+
+        $('.slide-1').on('click', function(){
+            var ccc= $('.slide-container').css('translateX');
+            $('.slide-container').css('transform', 'translateX(0)');
+            mainImg = 0;
+        });
+        $('.slide-2').on('click', function(){
+            $('.slide-container').css('transform', 'translateX(-100vw)');
+            mainImg = 1;
+        });
+        $('.slide-3').on('click', function(){
+            $('.slide-container').css('transform', 'translateX(-200vw)');
+            mainImg = 2;
+        });
+        
+        $('.slide-next').on('click', function(){
+            if(totalImg  - 1> mainImg){
+                mainImg++;
+                $('.slide-container').css('transform', 'translateX(-' + mainImg + '00vw)');
+            } else {
+                $('.slide-container').css('transform', 'translateX(0)');
+                mainImg = 0;
+            }
+        });
+
+        
+
+
+        /*정규식 /\S/ -> 아무 문자1개라는 뜻(특수기호까지 포함) /\S+/ -> +는 왼쪽 문자 반복검색
+        /^a/ -> a로 시작하냐 // /a$/ -> a로 끝나냐
+        or 기호 |도 사용가능.*/
+
         /*<input>태그에서 발생하는 이벤트 -> input, change
         input -> 입력된 값이 변경될 때 마다 이벤트 발생.
         change -> 입력된 값이 변경되고 포커스를 잃을때 이벤트 발생*/
@@ -40,11 +102,19 @@
         })
 
         $('form').on('submit', function(e){
-            if(document.getElementById('email').value == '' || document.getElementById('pass').value == ''
-            || document.getElementById('pass').value.length < 6){
+            if( /\S+@\S\.\S+/.test(document.getElementById('email').value == false)){
+                alert('이메일 형식 이상함...')
                 e.preventDefault();
-                alert('아이디 or 비밀번호길이 확인.');    
+                }
+            if( /[A-Z]/.test(document.getElementById('pass').value == false)){
+                alert('비번에 대문자가 없어...')
+                e.preventDefault();
             }
+            // if(document.getElementById('email').value == '' || document.getElementById('pass').value == ''
+            // || document.getElementById('pass').value.length < 6){
+            //     alert('아이디 or 비밀번호길이 확인.');
+            //     e.preventDefault();
+            // }
         });
         $('#login').on('click',function(){
             $('.black-bg').addClass('show-modal');
