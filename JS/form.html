@@ -10,6 +10,35 @@
     crossorigin="anonymous"></script>
 </head>
 <body>
+    <nav class="navbar navbar-light bg-light">
+        <div class="scroll-value">asd</div>
+        <div class="container-fluid">
+            <span class="navbar-brand">JSShop</span>
+            <span class="ms-auto mx-3 badge bg-dark">Dark</span>
+            <button class="navbar-toggler" type="button">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </nav>
+    <div style="overflow: hidden">
+        <div class="slide-container">
+            <div class="slide-box">
+                <img src="../img/car1.png">
+            </div>
+            <div class="slide-box">
+                <img src="../img/car2.png">
+            </div>
+            <div class="slide-box">
+                <img src="../img/car3.png">
+            </div>
+        </div>
+    </div>
+    <button class="slide-previous">pre</button>
+    <button class="slide-1">1</button>
+    <button class="slide-2">2</button>
+    <button class="slide-3">3</button>
+    <button class="slide-next">next</button>
+
     <div class="black-bg">
         <div class="white-bg">
             <h4>로그인하세요</h4>
@@ -30,25 +59,69 @@
         <h4>Shirts on Sale</h4>
         <button id="login" class="btn btn-danger">로그인</button>
     </div> -->
-    <div style="overflow: hidden">
-        <div class="slide-container">
-            <div class="slide-box">
-                <img src="../img/car1.png">
-            </div>
-            <div class="slide-box">
-                <img src="../img/car2.png">
-            </div>
-            <div class="slide-box">
-                <img src="../img/car3.png">
-            </div>
-        </div>
-    </div>
-    <button class="slide-previous">pre</button>
-    <button class="slide-1">1</button>
-    <button class="slide-2">2</button>
-    <button class="slide-3">3</button>
-    <button class="slide-next">next</button>
+
+    <div class="lorem" style="width: 200px; height: 100px; overflow-y: scroll">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+        Quae voluptas voluptatum minus praesentium fugit debitis at, 
+        laborum ipsa itaque placeat sit, excepturi eius. Nostrum perspiciatis, 
+        eligendi quae consectetur praesentium exercitationem.
+    </div> 
+    <!-- <div> 스크롤바 내린 높이 아는법
+        $('.lorem').on('scroll', function'(){
+            document.querySelector('.lorem').scrollTop; -> + height를 해줘야 실제 높이랑 똑같아짐.
+        }) 
+        <div>의 실제 높이 아는법
+            document.querySelector('.lorem').scrollHeight;
+        <div>의 눈에 보이는 높이 아는법
+            document.querySelector('.lorem').clientHeight;-->
+    <div style="height: 1000px"></div>
     <script>
+        // scroll 이밴트리스터
+        // 숙제 1 스크롤바 내리면 로고폰트 작게 맨위로 오면 다시 커지게.
+        window.addEventListener("scroll", function(){
+            var realHeight = document.querySelector('html').scrollHeight;
+            var scrollHeight = document.querySelector('html').clientHeight;
+            var scroll = document.querySelector('html').scrollTop;
+
+            console.log(scroll);
+            if(scroll == 0){
+                $('.scroll-value').css('width', '0%');
+            }else if(500 > scroll >= 250){
+                $('.scroll-value').css('width', '25%');
+            }else if(750 > scroll >= 500){
+                $('.scroll-value').css('width', '50%');
+            }else if(970 > scroll >= 750){
+                $('.scroll-value').css('width', '75%');
+            }else if(scroll >= 970){
+                $('.scroll-value').css('width', '100%');
+            }
+            if(window.scrollY >= 100){
+                $('.navbar-brand').css('font-size', '20px');
+            } else {
+                $('.navbar-brand').css('font-size', '30px');
+            }
+            if(realHeight < scrollHeight + scroll){
+                alert('화면 다내림');
+            }
+            // 유저가 얼마나 스크롤바 내렸는지 -> window.scrollY == window.pageYOffset
+            // window.scrollTo(x, y) -> 강제로 원하는 좌표로 스크롤하기
+            // window.scrollBy(x, y) -> 현재 위치부터 강제로 스크롤하기
+            /*/ $('window').on('scroll', function(){
+                $('window').scrollTop() -> 스크롤 양을 알려줌
+            })*/
+        });
+        // 숙제 2 회원약관 끝까지 읽으면 alert 띄우기
+        $('.lorem').on('scroll', function(){
+            var height = document.querySelector('.lorem').clientHeight; // 눈에보이는 div의 높이
+            var scrollHeight = document.querySelector('.lorem').scrollTop; // 얼마나 스크롤 됬는지
+            var realHeight = document.querySelector('.lorem').scrollHeight; // div의 실제 높이
+            if(realHeight  < scrollHeight+height) {
+                alert('다 읽음');
+            }
+        });
+        // html 페이지 스크롤 밑으로 다 내렸을때 alert
+
+
         function 함수(m, s){
             return ((m*60) + s)*1000
         }

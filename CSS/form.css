@@ -49,4 +49,21 @@ img {
 }
 .slide-box img {
   width: 100%;
+}
+
+.navbar {
+  position: fixed;
+  width: 100%;
+  z-index: 5;
+}
+
+.navbar-brand {
+  font-size: 30px;
+}
+
+.scroll-value {
+  width: 0%;
+  position: fixed;
+  background-color: red;
+  z-index: 7;
 }/*# sourceMappingURL=form.css.map */
