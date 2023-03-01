@@ -76,31 +76,42 @@
             document.querySelector('.lorem').clientHeight;-->
     <div style="height: 1000px"></div>
     <script>
+        // 다른곳 눌러도 모달창 다 꺼짐(이벤트 버빌링 현상) -> 이벤트가 상위 html로 퍼지는 현상.
+        $('.black-bg').on('click', function(e){
+             /*유저가 실제로 누른거
+            e.target; 
+             이벤트리스너가 달린 곳
+            e.currentTarget;
+            this;
+             이벤트 기본동작을 막아줌.
+            e.preventDefault();
+             내 상위요소로 이벤트 버블링 현상 막아주세요.
+            e.stopPropagation();*/
+            console.log(document.querySelector('.black-bg'));
+            if (e.target == document.querySelector('.black-bg')) {
+                $('.black-bg').removeClass('show-modal');
+            }
+        });
+
+
         // scroll 이밴트리스터
         // 숙제 1 스크롤바 내리면 로고폰트 작게 맨위로 오면 다시 커지게.
-        window.addEventListener("scroll", function(){
+        window.addEventListener("scroll", function(){  
+            // 스크롤바 indicator 만들기.
+            var winScroll = document.querySelector('html').scrollTop;
             var realHeight = document.querySelector('html').scrollHeight;
-            var scrollHeight = document.querySelector('html').clientHeight;
-            var scroll = document.querySelector('html').scrollTop;
+            var visibleHeight = document.querySelector('html').clientHeight;
 
-            console.log(scroll);
-            if(scroll == 0){
-                $('.scroll-value').css('width', '0%');
-            }else if(500 > scroll >= 250){
-                $('.scroll-value').css('width', '25%');
-            }else if(750 > scroll >= 500){
-                $('.scroll-value').css('width', '50%');
-            }else if(970 > scroll >= 750){
-                $('.scroll-value').css('width', '75%');
-            }else if(scroll >= 970){
-                $('.scroll-value').css('width', '100%');
-            }
+            var height = realHeight - visibleHeight;
+            var scrolled = (winScroll / height) *100
+
+            $('.scroll-value').css('width', scrolled + '%');
             if(window.scrollY >= 100){
                 $('.navbar-brand').css('font-size', '20px');
             } else {
                 $('.navbar-brand').css('font-size', '30px');
             }
-            if(realHeight < scrollHeight + scroll){
+            if(realHeight < visibleHeight + winScroll){
                 alert('화면 다내림');
             }
             // 유저가 얼마나 스크롤바 내렸는지 -> window.scrollY == window.pageYOffset
