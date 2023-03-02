@@ -1,1 +1,9 @@
-{"version":3,"sources":["darkmode.scss","darkmode.css"],"names":[],"mappings":"AAAA;EACI,8BAAA;EACA,YAAA;ACCJ;;ADCA;EACI,iBAAA;EACA,YAAA;ACEJ","file":"darkmode.css"}
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,UAAU,CAAA;EACN,UAAU,EAAE,kBAAkB;EAC9B,KAAK,EAAE,KAAK;CACf;;AACD,AAAA,WAAW,CAAA;EACP,UAAU,EAAE,KAAK;EACjB,KAAK,EAAE,KAAK;CACf",
+    "sources": [
+        "darkmode.scss"
+    ],
+    "names": [],
+    "file": "darkmode.css"
+}

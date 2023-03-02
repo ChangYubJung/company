@@ -1,3 +1,4 @@
+@use '_reset';
 ul.list {
   list-style-type: none;
   margin: 0;
@@ -6,7 +7,7 @@ ul.list {
 }
 
 ul.list::after {
-  content: "";
+  content: '';
   display: block;
   clear: both;
 }
@@ -38,4 +39,9 @@ ul.list::after {
 
 .show {
   display: block;
-}/*# sourceMappingURL=detail.css.map */
+}
+
+.hide {
+  visibility: hidden;
+}
+/*# sourceMappingURL=detail.css.map */

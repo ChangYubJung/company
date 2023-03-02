@@ -1,15 +1,4 @@
-body, p, h4, h5, h6, h1, h2, h3, div, span {
-  margin: 0;
-}
-
-div {
-  box-sizing: border-box;
-}
-
-img {
-  display: block;
-}
-
+@use '_reset';
 .gray {
   background-color: lightgray;
   height: 2000px;
@@ -19,6 +8,7 @@ img {
 .image {
   float: right;
   width: 400px;
+  position: -webkit-sticky;
   position: sticky;
   top: 100px;
 }
@@ -26,4 +16,5 @@ img {
 .test {
   float: left;
   width: 300px;
-}/*# sourceMappingURL=sticky.css.map */
+}
+/*# sourceMappingURL=sticky.css.map */

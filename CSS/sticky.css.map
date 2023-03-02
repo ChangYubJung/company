@@ -1,1 +1,9 @@
-{"version":3,"sources":["_reset.scss","sticky.css","sticky.scss"],"names":[],"mappings":"AAAA;EACI,SAAA;ACCJ;;ADEA;EACI,sBAAA;ACCJ;;ADCA;EACI,cAAA;ACEJ;;ACRA;EACI,2BAAA;EACA,cAAA;EACA,iBAAA;ADWJ;;ACTA;EACI,YAAA;EACA,YAAA;EAEA,gBAAA;EACA,UAAA;ADWJ;;ACTA;EACI,WAAA;EACA,YAAA;ADYJ","file":"sticky.css"}
+{
+    "version": 3,
+    "mappings": "AAAA,IAAI,CAAJ,QAAI;AAEJ,AAAA,KAAK,CAAA;EACD,gBAAgB,EAAE,SAAS;EAC3B,MAAM,EAAE,MAAM;EACd,UAAU,EAAE,KAAK;CACpB;;AACD,AAAA,MAAM,CAAA;EACF,KAAK,EAAE,KAAK;EACZ,KAAK,EAAE,KAAK;EAEZ,QAAQ,EAAE,MAAM;EAChB,GAAG,EAAC,KAAK;CACZ;;AACD,AAAA,KAAK,CAAA;EACD,KAAK,EAAE,IAAI;EACX,KAAK,EAAE,KAAK;CACf",
+    "sources": [
+        "sticky.scss"
+    ],
+    "names": [],
+    "file": "sticky.css"
+}
