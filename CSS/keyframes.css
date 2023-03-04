@@ -1,5 +1,16 @@
 @charset "UTF-8";
-@use '_reset';
+body, p, h4, h5, h6, h1, h2, h3, div, span {
+  margin: 0;
+}
+
+div {
+  box-sizing: border-box;
+}
+
+img {
+  display: block;
+}
+
 .ani-btn {
   color: white;
   background-color: rgba(38, 53, 221, 0.5);
@@ -9,65 +20,28 @@
   margin-top: 10px;
   border-radius: 5px;
 }
-
 .ani-btn:hover {
-  -webkit-animation-name: 흔들흔들;
-          animation-name: 흔들흔들;
-  -webkit-animation-duration: 0.5s;
-          animation-duration: 0.5s;
+  animation-name: 흔들흔들;
+  animation-duration: 0.5s;
 }
-
-@-webkit-keyframes 흔들흔들 {
-  0% {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-  }
-  20% {
-    -webkit-transform: rotate(-10deg);
-            transform: rotate(-10deg);
-  }
-  40% {
-    -webkit-transform: rotate(10deg);
-            transform: rotate(10deg);
-  }
-  60% {
-    -webkit-transform: rotate(-10deg);
-            transform: rotate(-10deg);
-  }
-  80% {
-    -webkit-transform: rotate(10deg);
-            transform: rotate(10deg);
-  }
-  100% {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-  }
-}
-
 @keyframes 흔들흔들 {
   0% {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
+    transform: rotate(0deg);
   }
   20% {
-    -webkit-transform: rotate(-10deg);
-            transform: rotate(-10deg);
+    transform: rotate(-10deg);
   }
   40% {
-    -webkit-transform: rotate(10deg);
-            transform: rotate(10deg);
+    transform: rotate(10deg);
   }
   60% {
-    -webkit-transform: rotate(-10deg);
-            transform: rotate(-10deg);
+    transform: rotate(-10deg);
   }
   80% {
-    -webkit-transform: rotate(10deg);
-            transform: rotate(10deg);
+    transform: rotate(10deg);
   }
   100% {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
+    transform: rotate(0deg);
   }
 }
 
@@ -76,43 +50,20 @@
   margin-top: 5%;
   font-size: 70px;
 }
-
 .ani-p:hover {
-  -webkit-animation-name: 와리가리후커짐;
-          animation-name: 와리가리후커짐;
-  -webkit-animation-duration: 1s;
-          animation-duration: 1s;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
+  animation-name: 와리가리후커짐;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
 }
-
-@-webkit-keyframes 와리가리후커짐 {
-  0% {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-  }
-  50% {
-    -webkit-transform: rotate(-15deg);
-            transform: rotate(-15deg);
-  }
-  100% {
-    -webkit-transform: rotate(45deg) scale(1.5);
-            transform: rotate(45deg) scale(1.5);
-  }
-}
-
 @keyframes 와리가리후커짐 {
   0% {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
+    transform: rotate(0deg);
   }
   50% {
-    -webkit-transform: rotate(-15deg);
-            transform: rotate(-15deg);
+    transform: rotate(-15deg);
   }
   100% {
-    -webkit-transform: rotate(45deg) scale(1.5);
-            transform: rotate(45deg) scale(1.5);
+    transform: rotate(45deg) scale(1.5);
   }
 }
 
@@ -124,59 +75,30 @@
   padding: 25px;
   position: fixed;
   text-align: right;
-  -webkit-transform: translateX(-150px);
-          transform: translateX(-150px);
-  -webkit-transition: all 1s;
+  transform: translateX(-150px);
   transition: all 1s;
 }
-
 .ani-nav p {
   text-align: left;
 }
-
 .ani-nav:hover {
-  -webkit-transform: translateX(0px);
-          transform: translateX(0px);
-  -webkit-transition: 1s;
+  transform: translateX(0px);
   transition: 1s;
   text-align: center;
 }
-
-@-webkit-keyframes p {
-  0% {
-    -webkit-transform: translateX(-100px);
-            transform: translateX(-100px);
-  }
-  50% {
-    -webkit-transform: translateX(50px) skewX(-20deg);
-            transform: translateX(50px) skewX(-20deg);
-  }
-  100% {
-    -webkit-transform: translateX(0px);
-            transform: translateX(0px);
-  }
-}
-
 @keyframes p {
   0% {
-    -webkit-transform: translateX(-100px);
-            transform: translateX(-100px);
+    transform: translateX(-100px);
   }
   50% {
-    -webkit-transform: translateX(50px) skewX(-20deg);
-            transform: translateX(50px) skewX(-20deg);
+    transform: translateX(50px) skewX(-20deg);
   }
   100% {
-    -webkit-transform: translateX(0px);
-            transform: translateX(0px);
+    transform: translateX(0px);
   }
 }
-
 .ani-nav:hover p {
-  -webkit-animation-name: p;
-          animation-name: p;
-  -webkit-animation-duration: 1s;
-          animation-duration: 1s;
+  animation-name: p;
+  animation-duration: 1s;
   text-align: center;
-}
-/*# sourceMappingURL=keyframes.css.map */
+}/*# sourceMappingURL=keyframes.css.map */

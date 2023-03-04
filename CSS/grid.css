@@ -1,12 +1,9 @@
 @charset "UTF-8";
 .grid-container {
-  display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 100px 100px 100px 100px;
-      grid-template-columns: 100px 100px 100px 100px;
-  -ms-grid-rows: 100px 100px 100px;
-      grid-template-rows: 100px 100px 100px;
-      grid-template-areas: "헤더 헤더 헤더 헤더" "사이드 . . . " "사이드 . . . ";
+  grid-template-columns: 100px 100px 100px 100px;
+  grid-template-rows: 100px 100px 100px;
+  grid-template-areas: "헤더 헤더 헤더 헤더" "사이드 . . . " "사이드 . . . ";
 }
 
 .grid-container div {
@@ -14,16 +11,9 @@
 }
 
 .grid-nav {
-  -ms-grid-row: 1;
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 4;
   grid-area: 헤더;
 }
 
 .grid-sidebar {
-  -ms-grid-row: 2;
-  -ms-grid-row-span: 2;
-  -ms-grid-column: 1;
   grid-area: 사이드;
-}
-/*# sourceMappingURL=grid.css.map */
+}/*# sourceMappingURL=grid.css.map */

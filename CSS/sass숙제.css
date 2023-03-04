@@ -1,5 +1,16 @@
 @charset "UTF-8";
-@use '_reset';
+body, p, h4, h5, h6, h1, h2, h3, div, span {
+  margin: 0;
+}
+
+div {
+  box-sizing: border-box;
+}
+
+img {
+  display: block;
+}
+
 /*브라우저가 그림그리는 순서\
 1. Render Tree 만들기
 2. Layout 잡기 - 가상의 네모 박스 그리기(위치잡기) width, margin, padding 등 처리
@@ -15,52 +26,24 @@ color 바꾸면 3 -> 4
   text-align: center;
   /*복잡한 애니메이션 정의는 @keyframes*/
 }
-
 .ani-text:hover {
   /*@keyframes 넣고싶으면 - animation-name & animation-duration 사용*/
-  -webkit-animation-name: 와리가리;
-          animation-name: 와리가리;
-  -webkit-animation-duration: 1s;
-          animation-duration: 1s;
-  -webkit-animation-iteration-count: 5;
-          animation-iteration-count: 5;
+  animation-name: 와리가리;
+  animation-duration: 1s;
+  animation-iteration-count: 5;
 }
-
-@-webkit-keyframes 와리가리 {
-  0% {
-    -webkit-transform: translateX(0px);
-            transform: translateX(0px);
-  }
-  50% {
-    -webkit-transform: translateX(-100px);
-            transform: translateX(-100px);
-  }
-  75% {
-    -webkit-transform: translateX(100px);
-            transform: translateX(100px);
-  }
-  100% {
-    -webkit-transform: translateX(0px);
-            transform: translateX(0px);
-  }
-}
-
 @keyframes 와리가리 {
   0% {
-    -webkit-transform: translateX(0px);
-            transform: translateX(0px);
+    transform: translateX(0px);
   }
   50% {
-    -webkit-transform: translateX(-100px);
-            transform: translateX(-100px);
+    transform: translateX(-100px);
   }
   75% {
-    -webkit-transform: translateX(100px);
-            transform: translateX(100px);
+    transform: translateX(100px);
   }
   100% {
-    -webkit-transform: translateX(0px);
-            transform: translateX(0px);
+    transform: translateX(0px);
   }
 }
 
@@ -68,26 +51,22 @@ ul {
   list-style: none;
   width: 30%;
 }
-
 ul li {
-  border: 1px solid #5f5e5e;
+  border: 1px solid rgb(95, 94, 94);
   padding: 10px;
 }
-
 ul li:hover {
   background-color: red;
 }
-
 ul li:nth-child(-n+2) {
   border-bottom: none;
 }
-
 ul .active {
-  background-color: #2a2af2;
+  background-color: rgb(42, 42, 242);
   color: white;
 }
 
-.div-1, .div-2, .div-3 {
+.div-3, .div-2, .div-1 {
   width: 80%;
   border-radius: 5px;
   padding: 10px;
@@ -96,25 +75,22 @@ ul .active {
 
 .div-1 {
   background-color: rgba(191, 225, 192, 0.5);
-  color: #739d6f;
+  color: rgb(115, 157, 111);
 }
 
 .div-2 {
   background-color: rgba(119, 174, 246, 0.5);
-  color: #47648a;
+  color: rgb(71, 100, 138);
 }
 
 .div-3 {
   background-color: rgba(240, 224, 131, 0.5);
-  color: #8c834e;
+  color: rgb(140, 131, 78);
 }
 
 .row {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
   margin: 10px;
 }
 
@@ -126,7 +102,6 @@ ul .active {
   background-color: rgba(118, 56, 118, 0.5);
   border-collapse: collapse;
 }
-
 @media screen and (min-width: 650px) {
   .col-md-6 {
     width: 50%;
@@ -172,5 +147,4 @@ ul .active {
   border: 0.5px solid rgba(116, 55, 116, 0.5);
   background-color: rgba(118, 56, 118, 0.5);
   border-collapse: collapse;
-}
-/*# sourceMappingURL=sass숙제.css.map */
+}/*# sourceMappingURL=sass숙제.css.map */

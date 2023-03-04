@@ -1,4 +1,15 @@
-@use '_reset';
+body, p, h4, h5, h6, h1, h2, h3, div, span {
+  margin: 0;
+}
+
+div {
+  box-sizing: border-box;
+}
+
+img {
+  display: block;
+}
+
 ul.list {
   list-style-type: none;
   margin: 0;
@@ -7,7 +18,7 @@ ul.list {
 }
 
 ul.list::after {
-  content: '';
+  content: "";
   display: block;
   clear: both;
 }
@@ -43,5 +54,4 @@ ul.list::after {
 
 .hide {
   visibility: hidden;
-}
-/*# sourceMappingURL=detail.css.map */
+}/*# sourceMappingURL=detail.css.map */

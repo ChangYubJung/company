@@ -145,3 +145,40 @@ $('#test').append(템플릿);
 - arrow function은 함수 안에서 this를 재정의해주지 않고 바깥에 있던 this를 그대로 씁니다.
 그래서 이벤트리스너 콜백함수안에서 this를 써야하면 arrow function 쓰면 의도와 다르게 동작할 수도 있습니다.
 그런데선 쓰지말자. */ 
+
+// array, for 반복문 실력향상 과제.
+
+var 출석부 = ['흥민', '영희', '철수', '재석'];
+
+function 이름찾기 (구멍){
+    for(let i = 0 ; i < 출석부.length ; i++){
+        if(출석부[i] == 구멍){
+            console.log('있어요');
+        }
+    }
+}
+
+이름찾기('철수');
+이름찾기('명수');
+
+for(let i=2 ; i<10 ; i++){
+    for(let j = 1 ; j < 10 ; j++){
+        console.log(i*j);
+    }
+}
+
+function 평균비교(array, ave){
+    var sum = 0;
+    for(let i = 0 ; i < array.length ; i++){
+        sum += array[i];
+    }
+    var totalAve = sum/array.length;
+    if(totalAve > ave){
+        console.log(`평균보다${totalAve-ave}점이 떨어짐 재수추천`);
+    }else{
+        console.log(`평균보다${ave-totalAve}점이 오름`);
+    }
+}
+
+평균비교([10,20,30,40,50], 40);
+평균비교([40,40,40], 20);
