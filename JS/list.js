@@ -23,15 +23,21 @@ function 상품구성(data, num){
     let img = document.createElement('img');
     let h5 = document.createElement('h5');
     let p = document.createElement('p');
+    let btn = document.createElement('button');
+
 
     div.classList.add('col-sm-4');
     img.src = "https://via.placeholder.com/600";
     img.classList.add('w-100');
+    btn.classList.add('buy');
+
 
     h5.innerHTML = data[num].title;
     p.innerHTML = data[num].price;
+    btn.innerHTML = '구매';
+
     
-    div.append(img ,h5, p);
+    div.append(img ,h5, p, btn);
     $('.row').append(div);
 }
 
@@ -188,3 +194,20 @@ var 새어레이 = 어레이.map(function(a){
     return a * 4;
 });
 */
+
+/* 로컬스토리지 다루는 법.
+localStroage-> 이름(key):값(value)형태로 저장가능, 용량은 5MB 문자/숫자만 저장가능, 사이트 재접속해도 유지됨.
+sessionStorage -> 사이트나가면 자동으로 삭제됨.
+<사용법>
+localStorage.setItem()
+localStorage.removeItem()
+localStorage.setItem('key1', 'value1');
+localStorage.removeItem('key1', 'value1');*/
+
+/* array, object -> JSON 으로 바꾸면 localStorage에 저장가능.
+var array = [1,2,3]; 
+var newArr = JSON.stringify(array);
+localStorage.setItem('name',newArr);
+var 꺼낸거 = localStorage.getItem('name');
+console.log(JSON.parse(꺼낸거));*/
+
