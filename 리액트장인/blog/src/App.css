@@ -20,7 +20,12 @@ div{
   color: white;
   padding-left: 20px;
 }
-
+.modal{
+  margin-top: 20px;
+  padding: 20px;
+  background: rgb(226, 226, 226);
+  text-align: left;
+}
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
