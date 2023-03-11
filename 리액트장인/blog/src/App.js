@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import { useState } from 'react';
+import React, { Component } from 'react';
 
 function App() {
   // 자료 잠깐 저장할 땐 변수 or state
@@ -11,10 +12,19 @@ function App() {
   // state 변경 -> state변경함수(새로운state값) -> state값을 갈아치워줌.
 /*Destructuring 문법
   let [a, c] = [1, 2]*/
+
+  let now = new Date();
+  let year = now.getFullYear();
+  let month = now.getMonth() + 1;
+  let date = now.getDate();
+  let hour = now.getHours();
+  let minutes = now.getMinutes();
+  
   let [글제목, b] = useState(['남자 코트 추천', '강남 우동 맛집', '파이썬독학']);
-  let [따봉, c] = useState([0, 0, 0]);
+  let [따봉, c] = useState([0,0,0]);
   let [title, setTitle] = useState(0);
   let [modal, setModal] = useState(false);
+  let [inputText, setInput] = useState('');
 
 /*map() 사용법 -> 약간 forEach같음...
 1. array 자료 갯수만큼 함수안의 코드 실행해줌.
@@ -89,7 +99,9 @@ function App() {
             <h4 onClick={()=>{
               setModal(!modal)
               setTitle(num);
-            }}>{data}<span onClick={()=>{
+            }}>{data}<span onClick={(e)=>{
+              // 이벤트버블링을 막을때 사용.
+              e.stopPropagation();
               let copy = [...따봉];
               copy[num] = copy[num] + 1;
               c(copy);
@@ -97,11 +109,35 @@ function App() {
               </span>
               {따봉[num]}
               </h4>
-            <p>2월 17일 발행</p>
+            <p>{year}. {month}. {date} / {hour}:{minutes}</p>
+            <button onClick={()=>{
+              let copy = 글제목.filter((element)=>element !== data);
+              // copy.splice(num, 1); => 라고 사용해도 삭제가능.
+              let copy2 = [...따봉];
+              copy2.shift();
+              b(copy);
+              c(copy2);
+            }}>삭제</button>
           </div>
           )
         })
       }
+      <input onChange={(e)=>{
+        // state 변경함수는 늦게처리됨(비동기적으로 실행함.)
+        setInput(e.target.value);
+      }}></input>
+
+      <button onClick={()=>{
+        if(inputText !==''){
+          let copy = [...글제목];
+          let copy2 = [...따봉];
+          copy2.unshift(0);
+          // unshift()  array 맨 앞에 값 추가.
+          copy.unshift(inputText);
+          b(copy);
+          c(copy2);
+        }
+      }}>추가</button>
       {/* html 안에 조건문 쓰고 싶으면 { 삼항연산자 }  쓰자  */}
       {
         // null 은 비어있는 html 대용으로 자주 사용.
@@ -110,7 +146,7 @@ function App() {
         // 2. 파라미터 등록 후 "파라미터.작명" 사용
         modal == true ?  <Modal 글제목={글제목} title={title}/> : null
       }
-      {/* <Modal/> */}
+      <Modal2/>
 
     </div>
   );
@@ -132,5 +168,43 @@ function Modal(props){
     </div>
   )
 }
+
+// Class(변수, 함수 보관하는 통)를 이용하여 컴포넌트 만들기.
+// 1. class 어쩌구 작성하고 컴포넌트 이름 작명합니다.
+// 2. constructor, super, render 함수 3개 채워넣습니다. 기본 템플릿같은 것임 
+// 3. 컴포넌트는 길고 복잡한 html 축약할 때 쓴다고 했습니다. return 안에 축약할 html 적으면 됩니다.
+class Modal2 extends React.Component {
+//   부모가 보낸 props를 출력하고 싶으면
+// 1. constructor, super에 props 파라미터 등록하고
+// 2. this.props 쓰면 props 나옵니다. ex)this.props.props이름
+  constructor(props){
+    super(props);
+  // 1. this.state 라는 변수만들고 거기 안에다가 object 형식으로 state 쭉 나열하면 됩니다.
+  // object는 자료 여러개를 { 자료이름 : 자료값 } 형식으로 저장할 수 있는 자료형입니다.
+  // 자바스크립트기초 몰라서 object를 모르면 어쩔 수 없고 그냥 저 형식에 맞추기만 하면 됩니다. 
+    this.state = {
+        name : 'kim',
+        age : 20
+      }
+    }
+    render(){
+      return(
+  // 2. 그리고 state 사용하고 싶으면 this.state.state이름 쓰면 됩니다. 
+        <div>안녕 {this.state.age}
+          <button onClick={()=>{
+// state변경하고 싶으면 this.setState라는 기본함수를 가져다가 씁니다.
+// 소괄호안에 새로운 state 넣으면 그걸로 기존 state를 업데이트해줍니다.
+// 갈아치워주는건 아니고 차이점만 잘 변경해줍니다.
+
+            this.setState({age : 21})
+            // 부모가 보낸 props를 출력하려면.
+            // this.props.props이름
+          }}>버튼</button>        
+        </div>
+      )
+    }
+}
+
+
 
 export default App;
