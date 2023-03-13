@@ -5,6 +5,11 @@ import { useState } from "react";
 import {Navbar, Nav, Container, Row, Col} from 'react-bootstrap';
 import { Routes, Route, Link, useNavigate, Outlet } from "react-router-dom";
 import Detail from './routes/detail.js';
+import axios from 'axios';
+import styled from 'styled-components';
+
+
+
 // export 단일
 // import 작명 from './data.js';
 // export 여러개 -> 작명못함 원래 변수 그래도 적어줘야함.
@@ -15,7 +20,9 @@ import data from './data.js';
 // <img src={process.env.PUBLIC_URL + '/logo192.png'} /> public 폴더안에 img 사용시 권장 방식.
 
 function App() {
-  let [shoes] = useState(data);
+  let [alert2, setAlert2] = useState(false);
+  let [shoes, setShoes] = useState(data);
+  let [btn, setBtn] = useState(0);
   // 1. 페이지 이동도와주는 HOOK 함수.
   let navigate = useNavigate();
   return (
@@ -47,6 +54,54 @@ function App() {
               }
             </Row>
           </Container>
+          {/* 쌩자바스크립트 문법
+          fetch('URL').then(결과 => 결과.json()).then((결과) => { console.log(결과) } ) */}
+
+          {/* ajax 쓰려면 옵션3개 중 택1
+          1. XMLHttpRequest
+          2. fetch()
+          3. axios 같은거 */}
+          <button onClick={() =>{
+            setAlert2(true);
+            // 동시에 ajax 요청 여러개하려면 Promise.all([axios.get('url1'), axios.get('url2')]).then()
+            // 원래 서버와 문자만 주고받을 수 있음. 하지만 "" 쳐놓으면 array, object도 주고받기 가능.
+            // ex "{"name" : "kim"}"
+            if(btn === 0){
+              axios.get('https://codingapple1.github.io/shop/data2.json')
+              // result 는 실제 가져온 데이터
+              .then((result)=>{
+                // result.data 값음 [{...}]로 가져와짐 ... 의미가 [] 괄호 벗겨주는 문법임!!!
+                // concat() 사용해도됨.
+                let copy = [...shoes, ...result.data];
+                setShoes(copy);
+                setAlert2(false);
+              })
+              .catch((error)=>{
+                console.log(error);
+                setAlert2(false);
+              })
+              setBtn(btn+1);
+            } else if(btn === 1){
+              axios.get('https://codingapple1.github.io/shop/data3.json')
+              // result 는 실제 가져온 데이터
+              .then((result)=>{
+                // result.data 값음 [{...}]로 가져와짐 ... 의미가 [] 괄호 벗겨주는 문법임!!!
+                // concat() 사용해도됨.
+                let copy = [...shoes, ...result.data];
+                setShoes(copy);
+                setAlert2(false);
+              })
+              .catch((error)=>{
+                console.log(error);
+                setAlert2(false);
+              })
+              setBtn(btn+1);
+            }
+            else{
+              alert("상품 없음");
+            }
+          }}>더보기</button>
+          { alert2 === true ? <LoddingUi>로딩중</LoddingUi> : null}
           </>
         }/>
         {/* 페이지 여러개 만들고 싶으면 :URL파라미터를 사용하자. */}
@@ -64,9 +119,19 @@ function App() {
         </Route>
         <Route path="*" element={<div>404 Not Found!</div>}/>
       </Routes>
+
+
     </div>
   );
 }
+let LoddingUi = styled.div`
+  background : gray;
+  width : 50%;
+  margin : auto;
+  color : white;
+  padding : 20px;
+  border-radius : 15px;
+`
 
 function Product(props){
   return(
